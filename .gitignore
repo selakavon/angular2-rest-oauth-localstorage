@@ -1,0 +1,8 @@
+node_modules/
+.tscache
+dist/
+typings/
+/*.tmp.txt
+.vscode
+build/
+app/.baseDir.ts
