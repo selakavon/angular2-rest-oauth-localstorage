@@ -1,0 +1,14 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+  	<span *ngIf="timeEntryHref">Modify Time Entry</span>
+  	<span *ngIf="!timeEntryHref">Create Time Entry</span>
+  </div>
+  <div class="panel-body"> 
+  	<time-entry-form 
+  		[timeEntry]="timeEntry"
+  		(onSubmitForm)="saveTimeEntry($event)"
+  		(onCancelForm)="cancelEdit()"
+  		>
+  	</time-entry-form>
+  </div>
+</div>

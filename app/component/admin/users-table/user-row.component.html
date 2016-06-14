@@ -1,0 +1,18 @@
+<td>
+	{{ user.fullName }}
+</td>
+<td>
+	{{ user.userName }}
+</td>
+<td>
+	<template ngFor let-role [ngForOf]="user.roles" let-last="last">
+		{{ role }}<template [ngIf]="!last">, </template>
+	</template>
+</td>
+<td>
+	<span class="pull-right">
+		<button class="btn btn-default" (click)="editUser()">Modify</button>
+		<button class="btn btn-danger" (click)="deleteUser()">Delete</button>
+		<button class="btn btn-default" (click)="viewEntries()">View Entries</button>
+	</span>
+</td>

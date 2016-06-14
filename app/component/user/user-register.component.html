@@ -1,0 +1,81 @@
+
+<div class="col-sm-4">
+</div>
+
+<div class="col-sm-4">
+
+    <h3>Please Register, or <a [routerLink]="['/login']">Login</a></h3>
+
+    <form role="form" [ngFormModel]="registerForm">
+
+    <div class="form-group" [class.has-error]="!registerForm.find('fullName').valid && registerForm.find('fullName').touched">
+        <label for="formFullName">Full name</label>
+        <input
+            id="formFullName"
+            type="text" 
+            placeHolder="Username ..." 
+            #fullName="ngForm"
+            [ngFormControl]="registerForm.find('fullName')"
+            [(ngModel)]="formModel.fullName" 
+            class="form-control"
+        />
+        
+        <span *ngIf="!fullName.control.valid && fullName.control.touched" class="text-danger">* required</span>
+    </div>
+
+    <div class="form-group" [class.has-error]="!registerForm.find('userName').valid && registerForm.find('userName').touched">
+        <label for="formUserName">Username</label>
+        <input
+            id="formUserName"
+            type="text" 
+            placeHolder="Username ..." 
+            #userName="ngForm"
+            [ngFormControl]="registerForm.find('userName')"
+            [(ngModel)]="formModel.userName" 
+            class="form-control"
+        />
+        
+        <span *ngIf="!userName.control.valid && userName.control.touched" class="text-danger">* required</span>
+    </div>
+
+    <div class="form-group" [class.has-error]="!registerForm.find('password').valid && registerForm.find('password').touched">
+        <label for="formPassword">Password</label>
+        <input
+            id="formPassword"
+            type="password" 
+            placeHolder="Input new password ..." 
+            #password="ngForm"
+            [ngFormControl]="registerForm.find('password')"
+            [(ngModel)]="formModel.password" 
+            class="form-control"
+        />
+        
+        <span *ngIf="!password.control.valid && password.control.touched" class="text-danger">* required</span>
+    </div>
+
+    <div class="form-group" [class.has-error]="!registerForm.find('passwordConfirm').valid && registerForm.find('passwordConfirm').touched">
+        <label for="formPasswordConfirm">Confirm password</label>
+        <input
+            id="formPasswordConfirm"
+            type="password" 
+            placeHolder="Confirm password ..." 
+            #passwordConfirm="ngForm"
+            [ngFormControl]="registerForm.find('passwordConfirm')"
+            [(ngModel)]="formModel.passwordConfirm" 
+            class="form-control"
+        />
+        
+        <span *ngIf="!passwordConfirm.control.valid && passwordConfirm.control.touched" class="text-danger">* required</span>
+    </div>
+    
+    <div *ngIf="error" class="alert alert-danger">
+        <strong>Regitration failed:</strong>{{ error }}
+    </div>
+
+    <button type="submit" class="btn btn btn-primary btn-group-justified" (click)="submitForm()">
+        Register
+    </button>
+    </form>
+
+</div>
+

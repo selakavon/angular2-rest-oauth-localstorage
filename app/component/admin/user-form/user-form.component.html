@@ -1,0 +1,93 @@
+<div class="col-sm-5">
+
+	<form [ngFormModel]='mainForm' role="form">
+
+		<div class="form-group" [class.has-error]="!mainForm.find('fullName').valid && mainForm.find('fullName').touched">
+			<label for="formFullName">Full name</label>
+			
+			<input
+				id="formFullName"		
+				type="text" 
+				placeHolder="Input full name ..." 
+				#fullName="ngForm"
+				[ngFormControl]="mainForm.find('fullName')"
+				[(ngModel)]="formModel.fullName" 
+				class="form-control"
+			/>
+			
+			<span *ngIf="!fullName.control.valid && fullName.control.touched" class="text-danger">* required</span>
+		</div>	
+		
+		<div class="form-group" [class.has-error]="!mainForm.find('userName').valid && mainForm.find('userName').touched">
+			<label for="formUserName">Username</label>
+			
+			<input
+				id="formUserName"		
+				type="text" 
+				placeHolder="Input new username ..." 
+				#userName="ngForm"
+				[ngFormControl]="mainForm.find('userName')"
+				[(ngModel)]="formModel.userName" 
+				class="form-control"
+				[disabled]="user.userName"
+			/>
+			
+			<span *ngIf="!userName.control.valid && userName.control.touched" class="text-danger">* required</span>
+		</div>		
+
+		<div *ngIf="user.userName">
+			<label>Roles</label>
+			<div>
+				<label *ngFor="let roleName of availableRoles; let index = index" class="checkbox-inline">
+					<input type="checkbox" [(ngModel)]="roles[index]">
+					{{ roleName }}
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group" [class.has-error]="!mainForm.find('password').valid && mainForm.find('password').touched">
+			<label for="formEditPassword">Password</label>
+			
+			<input
+				id="formEditPassword"		
+				type="password" 
+				placeHolder="Input password to change ..." 
+				#password="ngForm"
+				[ngFormControl]="mainForm.find('password')"
+				[(ngModel)]="formModel.password" 
+				class="form-control"
+				selectOnFocus
+			/>
+		</div>		
+
+		<div class="form-group" [class.has-error]="!mainForm.find('passwordCheck').valid && mainForm.find('passwordCheck').touched">
+			<label for="formEditPasswordCheck">Reenter Password</label>
+			
+			<input
+				id="formEditPasswordCheck"		
+				type="passwordCheck" 
+				placeHolder="Input password again ..." 
+				#passwordCheck="ngForm"
+				[ngFormControl]="mainForm.find('passwordCheck')"
+				[(ngModel)]="formModel.passwordCheck" 
+				class="form-control"
+				selectOnFocus
+			/>
+		</div>		
+		
+		<div *ngIf="error" class="alert alert-danger">
+        	{{ error }}
+    	</div>
+		
+		<div *ngIf="saveError" class="alert alert-danger">
+        	{{ saveError }}
+    	</div>
+		
+		<button class="btn btn-danger" (click)="cancelForm()" >Back</button>
+
+		<button class="btn btn-success pull-right" [class.disabled]="!mainForm.valid" (click)="submitForm()" >Save</button>
+
+	</form>
+	
+
+</div>

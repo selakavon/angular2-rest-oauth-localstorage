@@ -1,0 +1,15 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+  	<span *ngIf="user.userName">Modify User</span>
+  	<span *ngIf="!user.userName">Create User</span>
+  </div>
+  <div class="panel-body"> 
+  	<user-form 
+  		[user]="user"
+			[error]="error"
+  		(onSubmitForm)="saveUser($event)"
+  		(onCancelForm)="cancelEdit()"
+  		>
+  	</user-form>
+  </div>
+</div>

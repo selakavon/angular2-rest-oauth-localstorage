@@ -1,0 +1,29 @@
+<form role="form" [ngFormModel]="mainForm">
+  <div class="form-group">
+    <label for="dateFrom">Date From:</label>
+    <input 
+    	id="dateFrom"
+    	type="date" 
+    	placeHolder="YYYY-MM-DD" 
+		  #dateFrom="ngForm"
+		  [ngFormControl]="mainForm.find('dateFrom')"
+		  [(ngModel)]="formModel.dateFrom" 
+    	class="form-control" 
+    	(change)="submitForm()"
+	>
+  </div>
+  <div class="form-group">
+    <label for="dateTo">Date to:</label>
+    <input 
+    	id="dateTo"
+    	type="date" 
+    	placeHolder="YYYY-MM-DD" 
+		  #dateTo="ngForm"
+		  [ngFormControl]="mainForm.find('dateTo')"
+		  [(ngModel)]="formModel.dateTo" 
+    	class="form-control" 
+    	(change)="submitForm()"
+	>
+  </div>
+</form>    
+

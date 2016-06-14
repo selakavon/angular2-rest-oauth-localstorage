@@ -1,0 +1,18 @@
+<td>
+	{{ timeEntry.date | dateToMillis | date }}
+</td>
+<td>
+	{{ timeEntry.distance }} km
+</td>
+<td>
+	{{ timeEntry.timeSeconds | timeFromSeconds }}
+</td>
+<td>
+	{{ calculateSpeed(timeEntry) | number:['1.2-2'] }} km/h
+</td>
+<td class="button-cell">
+	<span class="pull-right">
+		<button class="btn btn-default" (click)="editTimeEntry()">Modify</button>
+		<button class="btn btn-danger" (click)="deleteTimeEntry()">Delete</button>
+	</span>
+</td>

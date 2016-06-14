@@ -1,0 +1,43 @@
+
+<div class="row">
+
+  <div class="col-sm-9">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+      	Time Entries <template [ngIf]="impersonatedUser">({{ impersonatedUser }})</template>
+  	  </div>
+      <div class="panel-body">
+        <time-entries-table 
+      		(onEdit)="editTimeEntry($event)"
+			    (onDelete)="deleteTimeEntry($event)"
+      		[timeEntries]="timeEntries">
+      	</time-entries-table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+  
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        Operations
+      </div>
+      <div class="panel-body">
+        <button class="btn btn-success center-block" (click)="createTimeEntry()">Create New</button>
+      </div>
+    </div>
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        Filter Results
+      </div>
+      <div class="panel-body">
+        <div class="center-block">
+          <date-range-filter [filter]="dateRangeFilter" (onSearch)="onSearch($event)"></date-range-filter>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

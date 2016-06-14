@@ -1,0 +1,28 @@
+<table class="table ">
+	<thead>
+		<th>Date of Jogging</th>
+		<th>Distance</th>
+		<th>Duration</th>
+		<th>Average Speed</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<template ngFor let-reportWeek [ngForOf]="reportWeeks"> 
+			<tr [reportWeekRow]="reportWeek"
+				(onExpand)="expand(reportWeek)"
+				(onCollapse)="collapse(reportWeek)"
+				(click)="toggle(reportWeek)"
+				class="info"
+				>
+			</tr>
+			<template [ngIf]="reportWeek.timeEntries">
+				<tr *ngFor="let timeEntry of reportWeek.timeEntries" 
+					[timeEntryRow]="timeEntry" 
+					(onEdit)="editTimeEntry(timeEntry)"
+					(onDelete)="deleteTimeEntry(timeEntry, reportWeek)"
+					>
+				</tr>
+			</template>
+		</template>
+	</tbody>
+</table>

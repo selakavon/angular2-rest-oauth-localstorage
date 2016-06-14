@@ -1,0 +1,64 @@
+
+<div class="col-sm-3">
+
+	<form [ngFormModel]='mainForm' role="form">
+
+		<div class="form-group" [class.has-error]="!mainForm.find('date').valid && mainForm.find('date').touched">
+			<label for="formDate">Date of Jogging</label>
+			
+			<input
+				id="formText"		
+				type="date" 
+				placeHolder="YYYY-MM-DD" 
+				#date="ngForm"
+				[ngFormControl]="mainForm.find('date')"
+				[(ngModel)]="formModel.date" 
+				class="form-control"
+			/>
+			
+			<span *ngIf="!date.control.valid && mainForm.find('date').touched" class="text-danger">* date format YYYY-MM-DD required</span>
+		</div>		
+
+		<div class="form-group" [class.has-error]="!mainForm.find('duration').valid && mainForm.find('duration').touched">
+			<label for="formDuration">Duration</label>
+			
+			<input
+				id="formDuration"		
+				type="text" 
+				placeHolder="(HH:)MM:SS" 
+				#duration="ngForm"
+				[ngFormControl]="mainForm.find('duration')"
+				[(ngModel)]="formModel.duration" 
+				class="form-control"
+				selectOnFocus
+			/>
+
+			<span *ngIf="duration.control.hasError('pattern') && duration.control.touched" class="text-danger">* time format HH:MM:SS or MM:SS required</span>
+			<span *ngIf="duration.control.hasError('positiveDuration') && duration.control.touched" class="text-danger">* positive duration time required</span>
+		</div>		
+
+		<div class="form-group" [class.has-error]="!mainForm.find('distance').valid && mainForm.find('distance').touched">
+			<label for="formDuration">Distance (km)</label>
+			
+			<input
+				id="formDuration"		
+				type="text" 
+				placeHolder="Input distance in km" 
+				#distance="ngForm"
+				[ngFormControl]="mainForm.find('distance')"
+				[(ngModel)]="formModel.distance" 
+				class="form-control"
+				selectOnFocus
+			/>
+
+			<span *ngIf="!distance.control.valid && mainForm.find('distance').touched" class="text-danger">* positive number required</span>
+		</div>				
+		
+		<button class="btn btn-danger" (click)="cancelForm()" >Back</button>
+
+		<button class="btn btn-success pull-right" [class.disabled]="!mainForm.valid" (click)="submitForm()" >Save</button>
+
+	</form>
+	
+
+</div>

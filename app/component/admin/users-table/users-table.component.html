@@ -1,0 +1,19 @@
+
+<table class="table table-striped">
+	<thead>
+		<th>Full name</th>
+		<th>Username</th>
+		<th>Roles</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let user of users" 
+			[userRow]="user" 
+
+			(onEdit)="editUser(user)"
+			(onDelete)="deleteUser(user)"
+			(onViewEntries)="viewEntriesAs(user)"
+			>
+		</tr>
+	</tbody>
+</table>

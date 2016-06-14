@@ -1,0 +1,33 @@
+
+<div class="row">
+
+  <div class="col-sm-9">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+      	Users Administration
+  	  </div>
+      <div class="panel-body">
+        <users-table 
+      		(onEdit)="editUser($event)"
+		      (onDelete)="deleteUser($event)"
+          (onViewEntriesAs)="viewEntriesAs($event)"
+      		[users]="users">
+      	</users-table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+  
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        Operations
+      </div>
+      <div class="panel-body">
+        <button class="btn btn-success center-block" (click)="createUser()">Create New</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

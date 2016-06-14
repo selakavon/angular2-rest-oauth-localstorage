@@ -1,0 +1,20 @@
+<div class="row">
+
+  <div class="col-sm-12">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+      	Weekly Report
+  	  </div>
+      <div class="panel-body">
+        <report-weekly-table 
+      		(onEdit)="editTimeEntry($event)"
+		      (onDelete)="deleteTimeEntry($event)" 
+          (onExpand)="expand($event)"
+      		[reportWeeks]="reportWeeks">
+      	</report-weekly-table>
+      </div>
+    </div>
+  </div>
+
+
+</div>

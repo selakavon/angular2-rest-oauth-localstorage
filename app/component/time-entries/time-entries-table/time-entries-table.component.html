@@ -1,0 +1,19 @@
+
+<table class="table table-striped">
+	<thead>
+		<th>Date of Jogging</th>
+		<th>Distance</th>
+		<th>Duration</th>
+		<th>Average Speed</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let timeEntry of timeEntries" 
+			[timeEntryRow]="timeEntry" 
+
+			(onEdit)="editTimeEntry(timeEntry)"
+			(onDelete)="deleteTimeEntry(timeEntry)"
+			>
+		</tr>
+	</tbody>
+</table>

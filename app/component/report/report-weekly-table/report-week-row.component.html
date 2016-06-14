@@ -1,0 +1,24 @@
+<td>
+	Week
+	{{ reportWeek.weekNumber }} :
+	{{ reportWeek.weekFirstDate | dateToMillis | date }}
+	-
+	{{ reportWeek.weekLastDate | dateToMillis | date }}
+</td>
+<td>
+	{{ reportWeek.distanceSum }} km
+</td>
+<td>
+	{{ reportWeek.timeSecondsSum | timeFromSeconds }}
+</td>
+<td>
+	{{ reportWeek.averageSpeed | number:['1.2-2'] }} km/h
+<td class="button-cell">
+	<span class="pull-right">
+
+		<button *ngIf="!reportWeek.timeEntries" class="btn btn-default" (click)="expand()"> <span class="caret"></span></button>
+		<div class="dropup">
+		<button *ngIf="reportWeek.timeEntries" class="btn btn-default" (click)="collapse()"> <span class="dropup caret"></span></button>
+		</div>
+	</span>
+</td>
