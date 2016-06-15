@@ -1,6 +1,7 @@
 # Sample Angular 2 application with OAuth2 authentication and REST backend
 
 Try it on Heroku: https://joggingtracker-ui-angular2.herokuapp.com/ 
+* Registed new user or use admin/admin credentials
 * REST api calls proxied to - https://joggingtracker.herokuapp.com
 
 ### Authentication
