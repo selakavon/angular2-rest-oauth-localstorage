@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/selakavon/angular2-rest-oauth-localstorage.svg?branch=master)](https://travis-ci.org/selakavon/angular2-rest-oauth-localstorage)
 
 Try it on Heroku: https://joggingtracker-ui-angular2.herokuapp.com/ 
-* Registed new user or use admin/admin credentials
+* Register new user or use admin/admin credentials
 * REST api calls proxied to - https://joggingtracker.herokuapp.com
 
 ### Authentication
